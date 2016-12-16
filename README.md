@@ -15,13 +15,20 @@ psql -Udarts darts -f schema/01_init.sql
 
 ### Local Setup
 
-```
-raco pkg charterm
-raco pkg rackunit/chk
-```
-
-### Compiling
+Requires Racket v6.7+
 
 ```
-rack exe main.rkt
+raco pkg install charterm
+raco pkg install rackunit-chk
+```
+
+### Running
+
+```
+# Interpreted:
+racket main.rkt
+
+# Compiled:
+raco exe main.rkt
+./main
 ```
