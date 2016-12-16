@@ -8,7 +8,9 @@ A terminal based scorekeeper for darts.
 ### Database Setup
 
 ```
-createuser darts --superuser
+createuser darts --superuser --password
+# when prompted, the password is 'darts'
+
 createdb -Udarts darts
 psql -Udarts darts -f schema/01_init.sql
 ```
