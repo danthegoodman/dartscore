@@ -27,7 +27,7 @@
     (define player_ndx (list-index (lambda (ps) (equal? active_player_id (player-state-id ps))) player-states))
     (define score (player-state-score (list-ref player-states player_ndx)))
     (define db_throws
-      (filter-map (lambda (t)
+      (filter identity (map (lambda (t)
                     (if (<= score 0)
                         #f
                         (begin
@@ -36,6 +36,7 @@
                           )))
                   throws
                   ))
+      )
     (when (and (< (length db_throws) 3) (< 0 score))
       (error "More throws need to be recorded")
       )
